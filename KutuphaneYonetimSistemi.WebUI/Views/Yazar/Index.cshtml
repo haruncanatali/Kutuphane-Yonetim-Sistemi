@@ -1,0 +1,49 @@
+﻿@using KutuphaneYonetimSistemi.Entities.Concrete
+@model List<Yazar>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="h2 text-center mt-2">Yazarlar Sayfası</h2>
+<hr />
+@if (Model.Count() < 1)
+{
+    <div class="row">
+        <h3 class="h3 text-danger">Sisteme henüz yazar eklenmemiş.</h3>
+        <a class="btn btn-primary" href="/Yazar/Add" style="width: 200px;">Yazar Ekle</a>
+    </div>
+}
+else
+{
+    <table class="mt-2 table table-bordered table-striped table-responsive">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Yazar Adı</th>
+            <th>Yazar Soyadı</th>
+            <th>Yazar Detayı</th>
+            <th>Veritabanı İşlemleri</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id.ToString()</td>
+                <td>@item.Ad</td>
+                <td>@item.Soyad</td>
+                @{
+                    var text = item.Detay.Length < 20 ? item.Detay : item.Detay.Substring(0, 20)+" (...)";
+                }
+                <td>@text</td>
+                <td class="text-center">
+                    <a class="btn btn-warning btn-sm w-25" style="margin-left:10px;" href="/Yazar/Update/@item.Id">Güncelle</a>
+                    <a class="btn btn-danger btn-sm w-25" style="margin-left:10px;" href="/Yazar/Delete/@item.Id">Sil</a>
+                    <a class="btn btn-primary btn-sm w-25" style="margin-left:10px;" href="/Yazar/Add">Ekle</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+

@@ -1,0 +1,63 @@
+﻿@using KutuphaneYonetimSistemi.Entities.Concrete
+@model List<Personel>
+@{
+    ViewBag.Title = "Index";
+}
+<h2 class="h2 text-center mt-2">Personeller Sayfası</h2>
+<hr />
+@if (Model.Count() < 1)
+{
+    <div class="row">
+        <h3 class="h3 text-danger">Sisteme eklenmiş bu adda/tümü personel yok.</h3>
+        <a class="btn btn-primary" href="/Personel/Add" style="width: 200px;">Personel Ekle</a>
+    </div>
+}
+else
+{
+    using (Html.BeginForm("Filtrele", "Personel", FormMethod.Get))
+    {
+        <div class="row mb-2" style="margin-left: 2px;">
+            <input type="text" class="form-control" placeholder="Aranacak personel adını giriniz" name="per" id="per" style="width: 885px; float: left;" />
+            <button type="submit" class="btn-sm btn-primary" style="float: left; margin-left: 10px; margin-top: 1px; width: 100px;">Ara</button>
+        </div>
+    }
+    <table class="mt-2 table table-bordered table-striped table-responsive">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Ad</th>
+                <th>Soyad</th>
+                <th>TC Kimlik No</th>
+                <th>Telefon</th>
+                <th>Adres</th>
+                <th>Veritabanı İşlemleri</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id.ToString()</td>
+                    <td>@item.Ad</td>
+                    <td>@item.Soyad</td>
+                    <td>@item.Tckn</td>
+                    <td>@item.Telefon</td>
+                    <td>@item.Adres</td>
+                    <td class="text-center">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <a class="btn btn-warning btn-sm" href="/Personel/Update/@item.Id" style="width: 70px;">Güncelle</a>
+                            </div>
+                            <div class="col-md-4 d-flex justify-content-center">
+                                <a class="btn btn-danger btn-sm" href="/Personel/Delete/@item.Id" style="width: 100px; margin-left: 20px;">Sil</a>
+                            </div>
+                            <div class="col-md-4 d-flex justify-content-center">
+                                <a class="btn btn-primary btn-sm" href="/Personel/Add" style="width: 100px;">Ekle</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

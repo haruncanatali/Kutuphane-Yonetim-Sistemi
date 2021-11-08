@@ -1,0 +1,19 @@
+﻿@using KutuphaneYonetimSistemi.Entities.Concrete;
+@model Kategori
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2 class="h2 text-center mt-2">Kategori Ekleme Sayfası</h2>
+<hr />
+@using (Html.BeginForm("Add", "Kategori", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <br />
+    <label><span class="h4">Kategori Adı</span></label>
+    @Html.TextBoxFor(c => c.Ad, new { @class = "form-control mt-3", @style = "width:300px;" });
+    @Html.ValidationMessageFor(c => c.Ad,null,new {@class="text-danger"})
+    <br />
+    <button type="submit" class="btn btn-primary mt-2">Ekle</button>
+}
+

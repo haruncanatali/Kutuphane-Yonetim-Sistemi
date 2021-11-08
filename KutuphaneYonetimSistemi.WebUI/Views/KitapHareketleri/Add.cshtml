@@ -1,0 +1,35 @@
+﻿@using KutuphaneYonetimSistemi.Entities.Concrete
+@model Hareket
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2 class="h2 text-center mt-2">Hareket Ekleme Sayfası</h2>
+<hr />
+@using (Html.BeginForm("Add", "KitapHareketleri", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <br />
+    <div class="row">
+        <div class="col-md-4">
+            <label><span class="h4">Kitap</span></label>
+            @Html.DropDownListFor(c => c.KitapId, (List<SelectListItem>)ViewBag.kitaplar, new { @class = "form-control mt-3", @style = "width:300px;" })
+            @Html.ValidationMessageFor(c => c.KitapId, null, new { @class = "text-danger" })
+        </div>
+        <div class="col-md-4">
+            <label><span class="h4">Personel</span></label>
+            @Html.DropDownListFor(c => c.PersonelId, (List<SelectListItem>)ViewBag.personeller, new { @class = "form-control mt-3", @style = "width:300px;" })
+            @Html.ValidationMessageFor(c => c.PersonelId, null, new { @class = "text-danger" })
+        </div>
+        <div class="col-md-4">
+            <label><span class="h4">Üye</span></label>
+            @Html.DropDownListFor(c => c.UyeId, (List<SelectListItem>)ViewBag.uyeler, new { @class = "form-control mt-3", @style = "width:300px;" })
+            @Html.ValidationMessageFor(c => c.UyeId, null, new { @class = "text-danger" })
+        </div>
+    </div>
+    <br />
+    <div class="row d-flex justify-content-center">
+        <button type="submit" class="btn btn-primary mt-2" style="width: 200px;">Ekle</button>
+    </div>
+}
+

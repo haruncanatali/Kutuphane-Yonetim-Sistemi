@@ -1,0 +1,71 @@
+﻿@using KutuphaneYonetimSistemi.Entities.Concrete
+@model List<Hareket>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="h2 text-center mt-2">Kitap Hareketleri Sayfası</h2>
+<hr />
+@if (Model.Count() < 1)
+{
+    <div class="row">
+        <h3 class="h3 text-danger">Sisteme eklenmiş bu bu kişiye kayıtlı/tümü hareket yok.</h3>
+        <a class="btn btn-primary" href="/KitapHareketleri/Add" style="width: 200px;">Hareket Ekle</a>
+    </div>
+}
+else
+{
+    using (Html.BeginForm("Filtrele", "KitapHareketleri", FormMethod.Get))
+    {
+        <div class="row mb-2" style="margin-left: 2px;">
+            <input type="text" class="form-control" placeholder="Aranacak üye adını giriniz" name="uyeVal" id="uyeVal" style="width: 885px; float: left;" />
+            <button type="submit" class="btn-sm btn-primary" style="float: left; margin-left: 10px; margin-top: 1px; width: 100px;">Ara</button>
+        </div>
+    }
+    <table class="mt-2 table table-bordered table-striped table-responsive">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Üye</th>
+                <th>Kitap</th>
+                <th>Personel</th>
+                <th>Veriliş Tarihi</th>
+                <th>İade Tarihi</th>
+                <th>Ceza Durumu</th>
+                <th>Veritabanı İşlemleri</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id.ToString()</td>
+                    <td>@item.Uyesi.Ad&nbsp;@item.Uyesi.Soyad</td>
+                    <td>@item.Kitabi.Ad</td>
+                    <td>@item.Personeli.Ad&nbsp;@item.Personeli.Soyad</td>
+                    <td>@item.AlisTarihi.ToString("MM/dd/yyyy")</td>
+                    <td>@item.IadeTarihi.ToString("MM/dd/yyyy")</td>
+                    <td>
+                        @{
+                            string stateVal = item.Cezalar.Count() > 0 ? "Var" : "Yok";
+                        }
+                        @stateVal
+                    </td>
+                    <td class="text-center">
+                        <div class="row">
+                            <div class="col-md-4 d-flex justify-content-center">
+                                <a class="btn btn-danger btn-sm" href="/KitapHareketleri/Delete/@item.Id" style="width: 100px;">Sil</a>
+                            </div>
+                            <div class="col-md-4 d-flex justify-content-center">
+                                <a class="btn btn-primary btn-sm" href="/KitapHareketleri/Add" style="width: 100px;">Ekle</a>
+                            </div>
+                        </div>
+                    </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+
+
+

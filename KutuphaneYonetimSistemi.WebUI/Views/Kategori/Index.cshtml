@@ -1,0 +1,39 @@
+﻿@using KutuphaneYonetimSistemi.Entities.Concrete
+@model List<Kategori>
+@{
+    ViewBag.Title = "Index";
+}
+@if (Model.Count < 1)
+{
+    <div class="row">
+        <h3 class="h3 text-danger">Sisteme henüz kategori eklenmemiş.</h3>
+        <a class="btn btn-primary" href="/Kategori/Add" style="width: 200px;">Kategori Ekle</a>
+    </div>
+}
+else
+{
+    <table class="mt-2 table table-bordered table-striped table-responsive">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Kategori Adı</th>
+                <th>Veritabanı İşlemleri</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>@item.Id.ToString()</td>
+                <td>@item.Ad</td>
+                <td class="text-center">
+                    <a class="btn btn-warning btn-sm w-25" style="margin-left:10px;" href="/Kategori/Update/@item.Id">Güncelle</a>
+                    <a class="btn btn-danger btn-sm w-25" style="margin-left:10px;" href="/Kategori/Delete/@item.Id">Sil</a>
+                    <a class="btn btn-primary btn-sm w-25" style="margin-left:10px;" href="/Kategori/Add">Ekle</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+}
+

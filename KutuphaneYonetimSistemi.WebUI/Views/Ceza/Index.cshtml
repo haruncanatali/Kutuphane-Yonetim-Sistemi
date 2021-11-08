@@ -1,0 +1,77 @@
+﻿@using KutuphaneYonetimSistemi.Entities.Concrete
+@model List<Ceza>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="h2 text-center mt-2">Cezalar Sayfası</h2>
+<hr />
+@if (Model.Count() < 1)
+{
+    <div class="row">
+        <h3 class="h3 text-danger">Sisteme eklenmiş bu bu harekete kayıtlı/tümü hareket yok.</h3>
+        @using (Html.BeginForm("Add","Ceza",FormMethod.Get))
+        {
+            <input type="text" class="form-control" placeholder="Eklenecek Hareket ID'sini giriniz" name="hareketId" id="hareketId" style="width: 300px; margin-left: 3px; float: left;" required/>
+            <button class="btn-sm btn-primary" style="float: left; margin-left: 10px; margin-top: 1px; width: 100px;">Ekle</button>
+        }
+    </div>
+}
+else
+{
+    using (Html.BeginForm("Filtrele", "Ceza", FormMethod.Get))
+    {
+        <div class="row mb-2" style="margin-left: 2px;">
+            <div class="col-md-6">
+                @using (Html.BeginForm("Filtrele", "Ceza", FormMethod.Get))
+                {
+                    <input type="text" class="form-control" placeholder="Aranacak Hareket ID'sini giriniz" name="hareketId" id="hareketId" style="width: 300px; float: left;" required/>
+                    <button type="submit" class="btn-sm btn-primary" style="float: left; margin-left: 10px; margin-top: 1px; width: 100px;">Ara</button>
+                }
+            </div>
+            <div class="col-md-6">
+                @using (Html.BeginForm("Add","Ceza",FormMethod.Get))
+                {
+                    <input type="text" class="form-control" placeholder="Eklenecek Hereket ID'sini giriniz" name="hareketId" id="hareketId" style="width: 300px; margin-left: 3px; float: left;" required/>
+                    <button class="btn-sm btn-primary" style="float: left; margin-left: 10px; margin-top: 1px; width: 100px;">Ekle</button>
+                }
+            </div>
+        </div>
+    }
+    <table class="mt-2 table table-bordered table-striped table-responsive">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Üye</th>
+                <th>Hareket ID</th>
+                <th>Başlangıç Tarihi</th>
+                <th>Bitiş Tarihi</th>
+                <th>Ceza Tutarı</th>
+                <th>Veritabanı İşlemleri</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id.ToString()</td>
+                    <td>@item.Uyesi.Ad&nbsp;@item.Uyesi.Soyad&nbsp;@item.Uyesi.Tckn</td>
+                    <td>@item.HareketId</td>
+                    <td>@item.BaslangicTarihi.ToString("MM/dd/yyyy")</td>
+                    <td>@item.BitisTarihi.ToString("MM/dd/yyyy")</td>
+                    <td>@item.Para.ToString("0.00")&nbsp;&#x20BA;</td>
+                    <td class="text-center">
+                        <div class="row">
+                            <div class="col-md-4 d-flex justify-content-center">
+                                <a class="btn btn-danger btn-sm" href="/Ceza/Delete/@item.Id" style="width: 100px;">Sil</a>
+                            </div>
+                            <div class="col-md-4 d-flex justify-content-center">
+                                <a class="btn btn-primary btn-sm" href="/Ceza/Arttır/@item.Id" style="width: 100px;">Arttır</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

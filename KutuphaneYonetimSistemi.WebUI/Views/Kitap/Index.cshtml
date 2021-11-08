@@ -1,0 +1,74 @@
+﻿@using KutuphaneYonetimSistemi.Entities.Concrete
+@model List<Kitap>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="h2 text-center mt-2">Kitaplar Sayfası</h2>
+<hr />
+@if (Model.Count < 1)
+{
+    <div class="row">
+        <h3 class="h3 text-danger">Sisteme eklenmiş bu adda/tümü kitap yok.</h3>
+        <a class="btn btn-primary" href="/Kitap/Add" style="width: 200px;">Kitap Ekle</a>
+    </div>
+}
+else
+{
+    using (Html.BeginForm("Filtrele", "Kitap", FormMethod.Get))
+    {
+        <div class="row mb-2" style="margin-left: 2px;">
+            <input type="text" class="form-control" placeholder="Aranacak kitap adını giriniz" name="kitapAdi" id="kitapAdi" style="width: 885px; float: left;" />
+            <button type="submit" class="btn-sm btn-primary" style="float: left; margin-left: 10px; margin-top: 1px; width: 100px;">Ara</button>
+        </div>
+    }
+    <table class="mt-2 table table-bordered table-striped table-responsive">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Kitap Adı</th>
+                <th>Sayfa Sayısı</th>
+                <th>Basım Yılı</th>
+                <th>Yayın Evi</th>
+                <th>Kategorisi</th>
+                <th>Yazarı</th>
+                <th>Durumu</th>
+                <th>Veritabanı İşlemleri</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id.ToString()</td>
+                    <td>@item.Ad</td>
+                    <td>@item.SayfaSayisi.ToString()</td>
+                    <td>@item.BasimYili</td>
+                    <td>@item.YayinEvi</td>
+                    <td>@item.Kategorisi.Ad</td>
+                    <td>@item.Yazari.Ad&nbsp;@item.Yazari.Soyad</td>
+                    <td>
+                        @{
+                            string text1 = item.Durum == false ? "Salonda" : "Okurda";
+                        }
+                        @text1
+                    </td>
+                    <td class="text-center">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <a class="btn btn-warning btn-sm" href="/Kitap/Update/@item.Id" style="width: 70px;">Güncelle</a>
+                            </div>
+                            <div class="col-md-4 d-flex justify-content-center">
+                                <a class="btn btn-danger btn-sm" href="/Kitap/Delete/@item.Id" style="width: 100px;">Sil</a>
+                            </div>
+                            <div class="col-md-4 d-flex justify-content-center">
+                                <a class="btn btn-primary btn-sm" href="/Kitap/Add" style="width: 100px;">Ekle</a>
+                            </div>
+                        </div>
+                    </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+

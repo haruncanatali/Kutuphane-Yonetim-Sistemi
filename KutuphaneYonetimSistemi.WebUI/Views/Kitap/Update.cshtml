@@ -1,0 +1,53 @@
+﻿@using KutuphaneYonetimSistemi.Entities.Concrete
+@model Kitap
+@{
+    ViewBag.Title = "Update";
+}
+
+<h2 class="h2 text-center mt-2">Kitap Güncelleme Sayfası</h2>
+<hr />
+@using (Html.BeginForm("Update", "Kitap", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(c=>c.Id)
+    <br />
+    <div class="row">
+        <div class="col-md-4">
+            <label><span class="h4">Kitap Adı</span></label>
+            @Html.TextBoxFor(c => c.Ad, new { @class = "form-control mt-3", @style = "width:300px;" })
+            @Html.ValidationMessageFor(c => c.Ad, null, new { @class = "text-danger" })
+        </div>
+        <div class="col-md-4">
+            <label><span class="h4">Yazarı</span></label>
+            @Html.DropDownListFor(c => c.YazarId, (List<SelectListItem>)ViewBag.yazarlar, new { @class = "form-control mt-3", @style = "width: 300px;" })
+            @Html.ValidationMessageFor(c => c.YazarId, null, new { @class = "text-danger" })
+        </div>
+        <div class="col-md-4">
+            <label><span class="h4">Kategorisi</span></label>
+            @Html.DropDownListFor(c => c.KategoriId, (List<SelectListItem>)ViewBag.kategoriler, new { @class = "form-control mt-3 dropdown", @style = "width: 300px;" })
+            @Html.ValidationMessageFor(c => c.KategoriId, null, new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-4">
+            <label><span class="h4">Basım Yılı</span></label>
+            @Html.TextBoxFor(c => c.BasimYili, new { @class = "form-control mt-3", @style = "width:300px;" })
+            @Html.ValidationMessageFor(c => c.BasimYili, null, new { @class = "text-danger" })
+        </div>
+        <div class="col-md-4">
+            <label><span class="h4">Yayınevi</span></label>
+            @Html.TextBoxFor(c => c.YayinEvi, new { @class = "form-control mt-3", @style = "width:300px;" })
+            @Html.ValidationMessageFor(c => c.YayinEvi, null, new { @class = "text-danger" })
+        </div>
+        <div class="col-md-4">
+            <label><span class="h4">Sayfa Sayısı</span></label>
+            @Html.TextBoxFor(c => c.SayfaSayisi, new { @class = "form-control mt-3", @style = "width:300px;" })
+            @Html.ValidationMessageFor(c => c.SayfaSayisi, null, new { @class = "text-danger" })
+        </div>
+    </div>
+    <br />
+    <div class="row d-flex justify-content-center">
+        <button type="submit" class="btn btn-primary mt-2" style="width: 200px;">Güncelle</button>
+    </div>
+}
+

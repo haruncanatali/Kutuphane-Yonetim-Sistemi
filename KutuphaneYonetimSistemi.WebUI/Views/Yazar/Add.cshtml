@@ -1,0 +1,35 @@
+﻿@using KutuphaneYonetimSistemi.Entities.Concrete
+@model Yazar
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2 class="h2 mt-2">Yazar Ekleme Sayfası</h2>
+<hr />
+@using (Html.BeginForm("Add", "Yazar", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <br />
+    <div class="row">
+        <div class="col-md-6">
+            <label><span class="h4">Yazar Adı</span></label>
+            @Html.TextBoxFor(c => c.Ad, new { @class = "form-control mt-3", @style = "width:400px;" })
+            @Html.ValidationMessageFor(c => c.Ad, null, new { @class = "text-danger" })
+        </div>
+        <div class="col-md-6">
+            <label><span class="h4">Yazar Soyadı</span></label>
+            @Html.TextBoxFor(c => c.Soyad, new { @class = "form-control mt-3", @style = "width:400px;" })
+            @Html.ValidationMessageFor(c => c.Soyad, null, new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-md-6">
+            <label><span class="h4">Yazar Detayı</span></label>
+            @Html.TextAreaFor(c => c.Detay, 5, 1, new { @class = "form-control mt-3", @style = "width: 800px;" })
+            @Html.ValidationMessageFor(c => c.Detay, null, new { @class = "text-danger" })
+        </div>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary mt-2">Ekle</button>
+}
+

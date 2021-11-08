@@ -1,0 +1,76 @@
+﻿@using KutuphaneYonetimSistemi.Entities.Concrete
+@model Uye
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2 class="h2 text-center mt-2">Üye Ekleme Sayfası</h2>
+<hr />
+@using (Html.BeginForm("Add", "Uye", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <br />
+    <div class="row">
+        <div class="col-md-4">
+            <label><span class="h4">Ad</span></label>
+            @Html.TextBoxFor(c => c.Ad, new { @class = "form-control mt-3", @style = "width:300px;" })
+            @Html.ValidationMessageFor(c => c.Ad, null, new { @class = "text-danger" })
+        </div>
+        <div class="col-md-4">
+            <label><span class="h4">Soyad</span></label>
+            @Html.TextBoxFor(c => c.Soyad, new { @class = "form-control mt-3", @style = "width:300px;" })
+            @Html.ValidationMessageFor(c => c.Soyad, null, new { @class = "text-danger" })
+        </div>
+        <div class="col-md-4">
+            <label><span class="h4">Mail</span></label>
+            @Html.TextBoxFor(c => c.Mail, new { @class = "form-control mt-3", @style = "width:300px;" })
+            @Html.ValidationMessageFor(c => c.Mail, null, new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-4">
+            <label><span class="h4">Kullanıcı Adı</span></label>
+            @Html.TextBoxFor(c => c.KullaniciAdi, new { @class = "form-control mt-3", @style = "width:300px;" })
+            @Html.ValidationMessageFor(c => c.KullaniciAdi, null, new { @class = "text-danger" })
+        </div>
+        <div class="col-md-4">
+            <label><span class="h4">Şifre</span></label>
+            @Html.TextBoxFor(c => c.Sifre, new { @class = "form-control mt-3", @style = "width:300px;" })
+            @Html.ValidationMessageFor(c => c.Sifre, null, new { @class = "text-danger" })
+        </div>
+        <div class="col-md-4">
+            <label><span class="h4">Fotoğraf</span></label>
+            <input class="form-control mt-3" style="width: 300px;" type="file" id="uyeFoto" name="uyeFoto">
+            @Html.ValidationMessageFor(c => c.Fotograf, null, new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-4">
+            <label><span class="h4">Telefon</span></label>
+            @Html.TextBoxFor(c => c.Telefon, new { @class = "form-control mt-3", @style = "width:300px;" })
+            @Html.ValidationMessageFor(c => c.Telefon, null, new { @class = "text-danger" })
+        </div>
+        <div class="col-md-4">
+            <label><span class="h4">Okul</span></label>
+            @Html.TextBoxFor(c => c.Okul, new { @class = "form-control mt-3", @style = "width:300px;" })
+            @Html.ValidationMessageFor(c => c.Okul, null, new { @class = "text-danger" })
+        </div>
+        <div class="col-md-4">
+            <label><span class="h4">Tc Kimlik No</span></label>
+            @Html.TextBoxFor(c => c.Tckn, new { @class = "form-control mt-3", @style = "width:300px;" })
+            @Html.ValidationMessageFor(c => c.Tckn, null, new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <label><span class="h4">Adres</span></label>
+            @Html.TextAreaFor(c => c.Adres, 3, 20, new { @class = "form-control mt-3", @style = "width:300px;" })
+            @Html.ValidationMessageFor(c => c.Adres, null, new { @class = "text-danger" })
+        </div>
+    </div>
+    <br />
+    <div class="row d-flex justify-content-center">
+        <button type="submit" class="btn btn-primary mt-2" style="width: 200px;">Ekle</button>
+    </div>
+}
+

@@ -1,0 +1,57 @@
+﻿@using KutuphaneYonetimSistemi.Entities.Concrete
+@model Personel
+@{
+    ViewBag.Title = "Add";
+}
+<h2 class="h2 text-center mt-2">Personel Ekleme Sayfası</h2>
+<hr />
+@using (Html.BeginForm("Add", "Personel", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <br />
+    <div class="row">
+        <div class="col-md-4">
+            <label><span class="h4">Personel Adı</span></label>
+            @Html.TextBoxFor(c => c.Ad, new { @class = "form-control mt-3", @style = "width:300px;" })
+            @Html.ValidationMessageFor(c => c.Ad, null, new { @class = "text-danger" })
+        </div>
+        <div class="col-md-4">
+            <label><span class="h4">Personel Soyadı</span></label>
+            @Html.TextBoxFor(c => c.Soyad, new { @class = "form-control mt-3", @style = "width:300px;" })
+            @Html.ValidationMessageFor(c => c.Soyad, null, new { @class = "text-danger" })
+        </div>
+        <div class="col-md-4">
+            <label><span class="h4">Telefon</span></label>
+            @Html.TextBoxFor(c => c.Telefon, new { @class = "form-control mt-3", @style = "width:300px;" })
+            @Html.ValidationMessageFor(c => c.Telefon, null, new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-4">
+            <label><span class="h4">Kullanıcı Adı</span></label>
+            @Html.TextBoxFor(c => c.KullaniciAdi, new { @class = "form-control mt-3", @style = "width:300px;" })
+            @Html.ValidationMessageFor(c => c.KullaniciAdi, null, new { @class = "text-danger" })
+        </div>
+        <div class="col-md-4">
+            <label><span class="h4">Şifre</span></label>
+            @Html.PasswordFor(c => c.Sifre, new { @class = "form-control mt-3", @style = "width:300px;" })
+            @Html.ValidationMessageFor(c => c.Sifre, null, new { @class = "text-danger" })
+        </div>
+        <div class="col-md-4">
+            <label><span class="h4">Tc Kimlik No</span></label>
+            @Html.TextBoxFor(c => c.Tckn, new { @class = "form-control mt-3", @style = "width:300px;" })
+            @Html.ValidationMessageFor(c => c.Tckn, null, new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <label><span class="h4">Adres</span></label>
+            @Html.TextAreaFor(c => c.Adres,3,20, new { @class = "form-control mt-3", @style = "width:300px;" })
+            @Html.ValidationMessageFor(c => c.Adres, null, new { @class = "text-danger" })
+        </div>
+    </div>
+    <br />
+    <div class="row d-flex justify-content-center">
+        <button type="submit" class="btn btn-primary mt-2" style="width: 200px;">Ekle</button>
+    </div>
+}

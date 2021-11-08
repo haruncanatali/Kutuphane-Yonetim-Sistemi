@@ -1,0 +1,70 @@
+﻿@using KutuphaneYonetimSistemi.Entities.Concrete
+@model List<Uye>
+@{
+    ViewBag.Title = "Index";
+}
+<h2 class="h2 text-center mt-2">Üyeler Sayfası</h2>
+<hr />
+@if (Model.Count() < 1)
+{
+    <div class="row">
+        <h3 class="h3 text-danger">Sisteme eklenmiş bu adda/tümü üye yok.</h3>
+        <a class="btn btn-primary" href="/Uye/Add" style="width: 200px;">Üye Ekle</a>
+    </div>
+}
+else
+{
+    using (Html.BeginForm("Filtrele", "Uye", FormMethod.Get))
+    {
+        <div class="row mb-2" style="margin-left: 2px;">
+            <input type="text" class="form-control" placeholder="Aranacak üye adını giriniz" name="uyeVal" id="uyeVal" style="width: 885px; float: left;" />
+            <button type="submit" class="btn-sm btn-primary" style="float: left; margin-left: 10px; margin-top: 1px; width: 100px;">Ara</button>
+        </div>
+    }
+    <table class="mt-2 table table-bordered table-striped table-responsive">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Ad</th>
+                <th>Soyad</th>
+                <th>TC Kimlik No</th>
+                <th>Telefon</th>
+                <th>Mail</th>
+                <th>Fotoğraf</th>
+                <th>Veritabanı İşlemleri</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id.ToString()</td>
+                    <td>@item.Ad</td>
+                    <td>@item.Soyad</td>
+                    <td>@item.Tckn</td>
+                    <td>@item.Telefon</td>
+                    <td>@item.Mail</td>
+                    <td>
+                        <div class="row d-flex justify-content-center">
+                            <img src="../../Content/Img/@item.Fotograf" height="70" width="50" class="img-rounded"/>
+                        </div>
+                    </td>
+                    <td class="text-center">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <a class="btn btn-warning btn-sm" href="/Uye/Update/@item.Id" style="width: 120px;">Güncelle/Detay</a>
+                            </div>
+                            <div class="col-md-4 d-flex justify-content-center">
+                                <a class="btn btn-danger btn-sm" href="/Uye/Delete/@item.Id" style="width: 100px; margin-left: 20px;">Sil</a>
+                            </div>
+                            <div class="col-md-4 d-flex justify-content-center">
+                                <a class="btn btn-primary btn-sm" href="/Uye/Add" style="width: 100px;">Ekle</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
