@@ -21,6 +21,7 @@ namespace KutuphaneYonetimSistemi.Entities.Concrete
         public string YayinEvi { get; set; }
         public short SayfaSayisi { get; set; } // smallint
         public bool Durum { get; set; }
+        public string KitapFotoUrl { get; set; }
 
         public int KategoriId { get; set; }
         public int YazarId { get; set; }

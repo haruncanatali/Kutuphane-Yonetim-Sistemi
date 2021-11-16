@@ -21,6 +21,8 @@ namespace KutuphaneYonetimSistemi.Business.Validation
             this.RuleFor(c => c.KategoriId).NotNull().WithMessage("Kategori ID boş geçilemez.");
             this.RuleFor(c => c.YazarId).NotNull().WithMessage("Yazar ID boş geçilemez.");
             this.RuleFor(c => c.Durum).NotNull().WithMessage("Durum boş geçilemez.");
+            this.RuleFor(c => c.KitapFotoUrl).Length(1, 500)
+                .WithMessage("Kitap fotoğraf alanı [1-500] karakter aralığından oluşmak zorundadır.");
         }
     }
 }

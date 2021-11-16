@@ -23,6 +23,7 @@ namespace KutuphaneYonetimSistemi.Entities.Mapping
             this.Property(c => c.KategoriId).IsRequired();
             this.Property(c => c.YazarId).IsRequired();
             this.Property(c => c.Durum).IsRequired();
+            this.Property(c => c.KitapFotoUrl).IsOptional().HasMaxLength(500);
 
             this.ToTable("Tbl_Kitap");
             this.Property(c => c.Id).HasColumnName("Id");
@@ -31,6 +32,7 @@ namespace KutuphaneYonetimSistemi.Entities.Mapping
             this.Property(c => c.SayfaSayisi).HasColumnName("SayfaSayisi");
             this.Property(c => c.YayinEvi).HasColumnName("YayinEvi");
             this.Property(c => c.Durum).HasColumnName("Durum");
+            this.Property(c => c.KitapFotoUrl).HasColumnName("KitapFotoUrl");
             this.Property(c => c.KategoriId).HasColumnName("KategoriId");
             this.Property(c => c.YazarId).HasColumnName("YazarId");
         }
