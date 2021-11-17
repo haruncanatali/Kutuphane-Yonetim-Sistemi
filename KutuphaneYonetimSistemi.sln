@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KutuphaneYonetimSistemi.Bus
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KutuphaneYonetimSistemi.WebUI", "KutuphaneYonetimSistemi.WebUI\KutuphaneYonetimSistemi.WebUI.csproj", "{E7C6FA0C-DFDA-4B8D-80D2-04A573A651ED}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KutuphaneYonetimSistemi.DesktopUI", "KutuphaneYonetimSistemi.DesktopUI\KutuphaneYonetimSistemi.DesktopUI.csproj", "{B9DB0F9F-2F13-4934-8D6B-18B85C121346}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{E7C6FA0C-DFDA-4B8D-80D2-04A573A651ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E7C6FA0C-DFDA-4B8D-80D2-04A573A651ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E7C6FA0C-DFDA-4B8D-80D2-04A573A651ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9DB0F9F-2F13-4934-8D6B-18B85C121346}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9DB0F9F-2F13-4934-8D6B-18B85C121346}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9DB0F9F-2F13-4934-8D6B-18B85C121346}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9DB0F9F-2F13-4934-8D6B-18B85C121346}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
