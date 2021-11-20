@@ -19,7 +19,7 @@ namespace KutuphaneYonetimSistemi.Entities.Mapping
             this.Property(c => c.Ad).IsRequired().HasMaxLength(50);
 
             this.ToTable("Tbl_Kategori");
-            this.Property(c => c.Id).HasColumnName("Kategori");
+            this.Property(c => c.Id).HasColumnName("Id");
             this.Property(c => c.Ad).HasColumnName("Ad");
         }
     }
