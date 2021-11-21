@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#9C99AB"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:rowCount="3"
+            android:columnCount="2"
+            android:padding="10dp">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="180dp"
+                android:layout_columnWeight="1"
+                android:id="@+id/profilBtn"
+                android:text="Profilim"
+                android:background="#C03A37"/>
+            <Button
+                android:layout_marginLeft="5dp"
+                android:layout_width="0dp"
+                android:layout_height="180dp"
+                android:layout_columnWeight="1"
+                android:id="@+id/hareketBtn"
+                android:text="Hareketlerim"
+                android:background="#927B6B"/>
+            <Button
+                android:layout_width="0dp"
+                android:layout_marginLeft="5dp"
+                android:layout_height="180dp"
+                android:layout_columnWeight="1"
+                android:id="@+id/cezaBtn"
+                android:text="Cezalarım"
+                android:background="#FAD5C5"/>
+            <Button
+                android:layout_width="0dp"
+                android:layout_marginLeft="5dp"
+                android:layout_height="180dp"
+                android:layout_columnWeight="1"
+                android:id="@+id/duyuruBtn"
+                android:text="DUYURULAR"
+                android:background="#F9FEFA"/>
+            <Button
+                android:layout_width="0dp"
+                android:layout_marginLeft="5dp"
+                android:layout_height="180dp"
+                android:layout_columnWeight="1"
+                android:id="@+id/kitapBtn"
+                android:text="KİTAPLAR"
+                android:background="#FF6100"/>
+            <Button
+                android:layout_width="0dp"
+                android:layout_marginLeft="5dp"
+                android:layout_height="180dp"
+                android:layout_columnWeight="1"
+                android:id="@+id/personelBtn"
+                android:text="PERSONELLER"
+                android:background="#EBCA49"/>
+        </GridLayout>
+    </ScrollView>
+  <Button
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="Çıkış"
+      android:id="@+id/cikisBtn"/>
+
+</LinearLayout>

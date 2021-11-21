@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ecf0f1">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Üye Ekleme Ekranı"
+            android:textSize="20dp"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp"
+>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="40dp"
+            android:padding="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ad"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:textColor="#d35400"
+              />
+            <EditText
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="0.0dp"
+                android:id="@+id/adTxt"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_height="wrap_content"
+                android:text="Soyad"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:textColor="#d35400"
+            />
+            <EditText
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:id="@+id/soyadTxt"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_height="wrap_content"
+                android:text="Mail Adresi"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:textColor="#d35400"
+            />
+            <EditText
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:id="@+id/mailTxt"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_height="wrap_content"
+                android:text="Telefon"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:textColor="#d35400"
+            />
+            <EditText
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:id="@+id/telefonTxt"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_height="wrap_content"
+                android:text="TC Kimlik No"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:textColor="#d35400"
+            />
+            <EditText
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:id="@+id/tcTxt"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Okul"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:textColor="#d35400"
+              />
+            <EditText
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:id="@+id/okulTxt"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_height="wrap_content"
+                android:text="Kullanıcı Adı"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:textColor="#d35400"
+            />
+            <EditText
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:id="@+id/kullaniciAdiTxt"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_height="wrap_content"
+                android:text="Şifre"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:textColor="#d35400"
+            />
+            <EditText
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:id="@+id/sifreTxt"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_height="wrap_content"
+                android:text="Fotoğraf"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:textColor="#d35400"
+            />
+            <EditText
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:id="@+id/fotoTxt"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_height="wrap_content"
+                android:text="Adres"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:textColor="#d35400"
+          />
+            <EditText
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:id="@+id/adresTxt"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <Button
+            android:textAllCaps="false"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:text="Kayıt Ol"
+            android:id="@+id/kayitOlBtn"/>
+        <Button
+            android:textAllCaps="false"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:text="Geri Dön"
+            android:background="#df23"
+            android:id="@+id/geriDonBtn"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

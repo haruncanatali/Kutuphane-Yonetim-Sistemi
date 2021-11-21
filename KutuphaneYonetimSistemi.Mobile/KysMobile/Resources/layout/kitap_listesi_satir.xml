@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="150dp"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/kitapResmiImg"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="2"
+        android:layout_marginLeft="10dp"
+        android:layout_height="150dp"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Metal Fırtına"
+                android:textColor="#2C3A47"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:id="@+id/kitapAdiTxt"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Orkun Uçar"
+                android:textColor="#2C3A47"
+                android:textStyle="italic"
+                android:textSize="15dp"
+                android:id="@+id/yazarAdiSoyadiTxt"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Orhun Yayınevi"
+                android:textColor="#2C3A47"
+                android:textStyle="normal"
+                android:textSize="15dp"
+                android:id="@+id/yayinEviTxt"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="250 sayfa"
+                android:textColor="#2C3A47"
+                android:textStyle="normal"
+                android:textSize="15dp"
+                android:layout_marginLeft="15dp"
+                android:id="@+id/sayfaSayisiTxt"/>
+        </LinearLayout>
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Rafta"
+          android:textColor="#0be881"
+          android:textStyle="bold"
+          android:textSize="15dp"
+          android:id="@+id/kitapDurumuTxt"/>
+        <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="vertical"
+          android:gravity="end">
+          <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Aksiyon"
+            android:id="@+id/kategoriAdiTxt"
+            android:layout_marginRight="10dp"/>
+        </LinearLayout>
+        
+      </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
